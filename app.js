@@ -16,7 +16,7 @@ app.use(function (err, req, res, next) {
 });
 
 const corsOptions = {
-  origin: "*",
+  origin: "http://localhost:8081",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
