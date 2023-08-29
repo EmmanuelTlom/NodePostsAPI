@@ -8,7 +8,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: "*",
+    origin: ["http://localhost:8083", "https://utopedia.netlify.app"],
     // methods: ["GET", "POST"],
     credentials: true, //access-control-allow-credentials:true
     optionSuccessStatus: 200,
