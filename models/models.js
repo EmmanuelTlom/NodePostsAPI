@@ -20,6 +20,9 @@ const ModelSchema = new Schema({
   state: {
     type: String,
   },
+  origin: {
+    type: String,
+  },
   available: {
     type: Boolean,
     default: false,
