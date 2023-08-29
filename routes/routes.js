@@ -12,7 +12,7 @@ router.post("/posts", (req, res, next) => {
   postsModel
     .create(req.body)
     .then((post) => {
-      console.log(post);
+      console.log(post, "hi");
       res.send(post);
     })
     .catch(next);

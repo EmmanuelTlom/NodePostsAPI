@@ -9,19 +9,27 @@ const app = express();
 app.use(bodyParser.json());
 app.use("/api", router);
 const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+    credentials: true, //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+  })
+);
 // error handling middleware
 app.use(function (err, req, res, next) {
   // console.log(err)
   res.status(422).send({ error: err._message });
 });
 
-const corsOptions = {
-  origin: "http://localhost:8081",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: "*",
+//   credentials: true, //access-control-allow-credentials:true
+//   optionSuccessStatus: 200,
+// };
 
-app.use(cors(corsOptions));
 // routes
 
 const port = process.env.PORT || 5000;
