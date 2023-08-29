@@ -4,20 +4,21 @@ const router = require("./routes/routes");
 const connectDB = require("./db/connect");
 // set up express
 const app = express();
-
-// middlewares
-app.use(bodyParser.json());
-app.use("/api", router);
 const cors = require("cors");
 
 app.use(
   cors({
     origin: "*",
-    methods: ["GET", "POST"],
+    // methods: ["GET", "POST"],
     credentials: true, //access-control-allow-credentials:true
     optionSuccessStatus: 200,
   })
 );
+
+// middlewares
+app.use(bodyParser.json());
+app.use("/api", router);
+
 // error handling middleware
 app.use(function (err, req, res, next) {
   // console.log(err)
